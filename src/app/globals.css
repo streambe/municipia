@@ -1,0 +1,64 @@
+@import "tailwindcss";
+
+@theme inline {
+  --color-primary-50: #EFF6FF;
+  --color-primary-100: #DBEAFE;
+  --color-primary-600: #2563EB;
+  --color-primary-700: #1D4ED8;
+  --color-secondary-50: #ECFDF5;
+  --color-secondary-600: #059669;
+  --color-success: #22C55E;
+  --color-warning: #F59E0B;
+  --color-error: #EF4444;
+  --color-info: #3B82F6;
+  --color-surface: #F9FAFB;
+  --color-disclaimer-bg: #FFFBEB;
+  --color-disclaimer-border: #FDE68A;
+  --color-disclaimer-text: #92400E;
+  --font-sans: var(--font-inter);
+}
+
+body {
+  background: #FFFFFF;
+  color: #374151;
+  font-family: var(--font-sans), system-ui, sans-serif;
+}
+
+/* Skip to content */
+.skip-to-content {
+  position: absolute;
+  left: -9999px;
+  top: 0;
+  z-index: 100;
+  padding: 0.75rem 1.5rem;
+  background: var(--color-primary-600);
+  color: white;
+  font-weight: 600;
+  border-radius: 0 0 8px 0;
+}
+
+.skip-to-content:focus {
+  left: 0;
+}
+
+/* Focus visible */
+*:focus-visible {
+  outline: 2px solid var(--color-primary-600);
+  outline-offset: 2px;
+}
+
+/* Smooth scroll */
+html {
+  scroll-behavior: smooth;
+}
+
+@keyframes fadeSlideIn {
+  from {
+    opacity: 0;
+    transform: translateY(8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}

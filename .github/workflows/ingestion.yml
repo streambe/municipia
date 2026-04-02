@@ -1,0 +1,23 @@
+name: Daily Ingestion
+on:
+  schedule:
+    - cron: '0 6 * * *' # 03:00 UTC-3 (Argentina)
+  workflow_dispatch: # Manual trigger
+
+jobs:
+  ingest:
+    runs-on: ubuntu-latest
+    timeout-minutes: 60
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+      - run: npm ci
+      - name: Run ingestion pipeline (8 municipalities, all connectors)
+        run: npx tsx src/scripts/ingestion/index.ts
+        env:
+          NEXT_PUBLIC_SUPABASE_URL: ${{ secrets.SUPABASE_URL }}
+          SUPABASE_SERVICE_ROLE_KEY: ${{ secrets.SUPABASE_SERVICE_ROLE_KEY }}
+          VOYAGE_API_KEY: ${{ secrets.VOYAGE_API_KEY }}
