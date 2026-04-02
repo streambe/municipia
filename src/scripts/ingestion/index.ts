@@ -18,6 +18,9 @@ import { generateEmbeddingBatch } from '../../lib/ai/embeddings'
 import { ingestAllCKAN } from './connectors/ckan'
 import { ingestSIBOM } from './connectors/sibom'
 import { ingestBAAbierta } from './connectors/ba-abierta'
+import { ingestPBAC } from './connectors/pbac'
+import { ingestINDEC } from './connectors/indec'
+import { ingestSocialMedia } from './connectors/social-media'
 import { type IngestResult, type MunicipalityConfig, emptyResult } from './types'
 
 // ---------------------------------------------------------------------------
@@ -305,6 +308,54 @@ async function processMunicipality(
     stats.sources.push(failedResult)
   }
 
+  // 5. PBAC (Compras Publicas)
+  console.log(`\n  --- ${muni.name}: PBAC ---`)
+  try {
+    const pbacResult = await ingestPBAC(muni.name, muni.id)
+    stats.sources.push(pbacResult)
+    if (!dryRun && supabase && municipalityUuid) {
+      await logIngestion(supabase, municipalityUuid, 'pbac', pbacResult, startedAt)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] PBAC failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('pbac', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
+  // 6. INDEC (Census data)
+  console.log(`\n  --- ${muni.name}: INDEC ---`)
+  try {
+    const indecResult = await ingestINDEC(muni.name, muni.id)
+    stats.sources.push(indecResult)
+    if (!dryRun && supabase && municipalityUuid) {
+      await logIngestion(supabase, municipalityUuid, 'indec', indecResult, startedAt)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] INDEC failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('indec', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
+  // 7. Social Media
+  console.log(`\n  --- ${muni.name}: Social Media ---`)
+  try {
+    const socialResult = await ingestSocialMedia(muni.name, muni.id)
+    stats.sources.push(socialResult)
+    if (!dryRun && supabase && municipalityUuid) {
+      await logIngestion(supabase, municipalityUuid, 'social_media', socialResult, startedAt)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] Social Media failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('social_media', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
   return stats
 }
 
@@ -329,7 +380,7 @@ async function main() {
 
   console.log('MunicipIA Ingestion Pipeline — Starting...')
   console.log(`Municipalities: ${MUNICIPALITIES.length}`)
-  console.log(`Sources: web, ckan_pba, ckan_nacional, sibom, ba_abierta`)
+  console.log(`Sources: web, ckan_pba, ckan_nacional, sibom, ba_abierta, pbac, indec, social_media`)
   if (dryRun) console.log('MODE: dry-run (no DB writes)')
 
   const supabase = dryRun ? null : createSupabaseAdmin()

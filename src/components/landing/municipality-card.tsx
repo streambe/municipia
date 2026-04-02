@@ -16,7 +16,8 @@ export function MunicipalityCard({
   return (
     <Link
       href={`/chat/${slug}`}
-      className="group block rounded-xl border border-gray-200 bg-white p-6 transition-all duration-200 hover:border-primary-600/30 hover:shadow-lg hover:shadow-primary-600/5 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+      aria-label={`Consultar asistente de ${name}`}
+      className="group block rounded-xl border border-gray-200 bg-white p-6 min-h-[44px] transition-all duration-200 hover:border-primary-600/30 hover:shadow-lg hover:shadow-primary-600/5 hover:-translate-y-1 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
     >
       <div className="mb-3 text-3xl" aria-hidden="true">
         {emoji}

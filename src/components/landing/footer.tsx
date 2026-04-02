@@ -18,30 +18,30 @@ export function Footer() {
           </div>
 
           {/* Nav */}
-          <nav aria-label="Pie de página" className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
+          <nav aria-label="Pie de pagina" className="flex flex-wrap gap-x-6 gap-y-2 text-sm">
             <Link
               href="/privacidad"
-              className="text-gray-500 hover:text-gray-900 transition-colors"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center text-gray-500 underline decoration-gray-300 underline-offset-2 hover:text-gray-900 hover:decoration-gray-900 transition-colors"
             >
-              Política de privacidad
+              Politica de privacidad
             </Link>
             <Link
               href="/terminos"
-              className="text-gray-500 hover:text-gray-900 transition-colors"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center text-gray-500 underline decoration-gray-300 underline-offset-2 hover:text-gray-900 hover:decoration-gray-900 transition-colors"
             >
-              Términos de uso
+              Terminos de uso
             </Link>
             <a
               href="https://github.com/streambe"
               target="_blank"
               rel="noopener noreferrer"
-              className="text-gray-500 hover:text-gray-900 transition-colors"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center text-gray-500 underline decoration-gray-300 underline-offset-2 hover:text-gray-900 hover:decoration-gray-900 transition-colors"
             >
-              GitHub
+              GitHub<span className="sr-only"> (abre en nueva ventana)</span>
             </a>
             <a
               href="mailto:contacto@streambe.com"
-              className="text-gray-500 hover:text-gray-900 transition-colors"
+              className="min-h-[44px] min-w-[44px] inline-flex items-center text-gray-500 underline decoration-gray-300 underline-offset-2 hover:text-gray-900 hover:decoration-gray-900 transition-colors"
             >
               Contacto
             </a>
@@ -49,7 +49,7 @@ export function Footer() {
         </div>
 
         {/* Disclaimer */}
-        <div className="mt-8 rounded-lg bg-disclaimer-bg border border-disclaimer-border px-4 py-3">
+        <div className="mt-8 rounded-lg bg-disclaimer-bg border border-disclaimer-border px-4 py-3" role="note" aria-label="Aviso legal">
           <p className="text-sm text-disclaimer-text leading-relaxed">
             <strong>Aviso:</strong> Las respuestas son generadas por inteligencia
             artificial y pueden contener errores. Para información oficial,

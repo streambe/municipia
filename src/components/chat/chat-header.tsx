@@ -13,8 +13,8 @@ export function ChatHeader({ municipalityName, onNewChat }: ChatHeaderProps) {
       <div className="flex items-center gap-3">
         <Link
           href="/"
-          className="flex items-center gap-1.5 text-sm font-medium text-gray-500 transition-colors hover:text-primary-600"
-          aria-label="Volver a la pagina principal"
+          className="min-h-[44px] min-w-[44px] inline-flex items-center gap-1.5 text-sm font-medium text-gray-500 transition-colors hover:text-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+          aria-label="Volver al selector de municipios"
         >
           <svg
             width="20"
@@ -46,8 +46,8 @@ export function ChatHeader({ municipalityName, onNewChat }: ChatHeaderProps) {
 
       <button
         onClick={onNewChat}
-        className="rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:ring-2 focus-visible:ring-primary-600"
-        aria-label="Iniciar una nueva conversacion"
+        className="min-h-[44px] min-w-[44px] inline-flex items-center justify-center rounded-lg border border-gray-200 px-3 py-1.5 text-sm font-medium text-gray-600 transition-colors hover:bg-gray-50 hover:text-gray-900 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+        aria-label="Iniciar nueva conversacion"
       >
         <span className="hidden sm:inline">Nuevo chat</span>
         <svg

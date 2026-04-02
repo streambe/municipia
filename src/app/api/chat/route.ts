@@ -6,6 +6,7 @@ import { createServerClient } from '@/lib/supabase/server'
 import { addMessage } from '@/services/conversations'
 import { redactPII } from '@/lib/pii'
 import { rateLimit, getClientIP, rateLimitResponse } from '@/lib/rate-limit'
+import { checkPromptInjection } from '@/lib/guardrails'
 import type { Municipality } from '@/types/municipality'
 
 export const runtime = 'edge'
@@ -48,6 +49,15 @@ export async function POST(req: Request) {
           error: 'Last message content must be a non-empty string of max 2000 chars',
         }),
         { status: 400, headers: { 'Content-Type': 'application/json' } }
+      )
+    }
+
+    // Guardrails: check for prompt injection before calling LLM
+    const guardrailCheck = checkPromptInjection(lastMessage.content)
+    if (!guardrailCheck.safe) {
+      return new Response(
+        guardrailCheck.reason || 'No puedo responder a ese tipo de solicitud.',
+        { headers: { 'Content-Type': 'text/plain' } }
       )
     }
 

@@ -20,9 +20,9 @@ export async function GET(req: Request) {
 
   try {
     const supabase = createServerClient()
-    const twentyFourHoursAgo = new Date(
-      Date.now() - 24 * 60 * 60 * 1000
-    ).toISOString()
+    const now = Date.now()
+    const twentyFourHoursAgo = new Date(now - 24 * 60 * 60 * 1000).toISOString()
+    const sevenDaysAgo = new Date(now - 7 * 24 * 60 * 60 * 1000).toISOString()
 
     const [
       municipalitiesRes,
@@ -31,8 +31,10 @@ export async function GET(req: Request) {
       conversationsRes,
       totalMessagesRes,
       conversations24hRes,
+      conversations7dRes,
       messages24hRes,
       lastIngestionRes,
+      ingestionErrors24hRes,
     ] = await Promise.all([
       supabase
         .from('municipalities')
@@ -51,6 +53,10 @@ export async function GET(req: Request) {
         .select('id, municipality_id', { count: 'exact' })
         .gte('started_at', twentyFourHoursAgo),
       supabase
+        .from('conversations')
+        .select('id', { count: 'exact' })
+        .gte('started_at', sevenDaysAgo),
+      supabase
         .from('messages')
         .select('id, municipality_id, latency_ms', { count: 'exact' })
         .gte('created_at', twentyFourHoursAgo),
@@ -59,6 +65,11 @@ export async function GET(req: Request) {
         .select('*')
         .order('created_at', { ascending: false })
         .limit(1),
+      supabase
+        .from('ingestion_logs')
+        .select('id, municipality_id, source, status, errors', { count: 'exact' })
+        .gte('created_at', twentyFourHoursAgo)
+        .in('status', ['failed', 'partial']),
     ])
 
     // Average latency from last 24h assistant messages
@@ -78,7 +89,6 @@ export async function GET(req: Request) {
     const documents = documentsRes.data ?? []
     const chunks = chunksRes.data ?? []
     const conversations24h = conversations24hRes.data ?? []
-
     const allMessages = totalMessagesRes.data ?? []
 
     const byMunicipality = municipalities.map((mun) => ({
@@ -86,6 +96,7 @@ export async function GET(req: Request) {
       name: mun.name,
       documents: documents.filter((d) => d.municipality_id === mun.id).length,
       chunks: chunks.filter((c) => c.municipality_id === mun.id).length,
+      conversations: 0, // conversations table doesn't have municipality_id directly
       conversations24h: conversations24h.filter(
         (c) => c.municipality_id === mun.id
       ).length,
@@ -94,8 +105,16 @@ export async function GET(req: Request) {
 
     const lastIngestionData = lastIngestionRes.data?.[0] ?? null
     const lastIngestion = lastIngestionData
-      ? { date: lastIngestionData.created_at, status: lastIngestionData.status ?? 'unknown' }
+      ? {
+          date: lastIngestionData.created_at,
+          status: lastIngestionData.status ?? 'unknown',
+          source: lastIngestionData.source ?? 'unknown',
+          pagesProcessed: lastIngestionData.pages_processed ?? 0,
+          chunksCreated: lastIngestionData.chunks_created ?? 0,
+        }
       : null
+
+    const ingestionErrors24h = ingestionErrors24hRes.data ?? []
 
     return NextResponse.json({
       totalMunicipalities: municipalitiesRes.count ?? 0,
@@ -108,6 +127,26 @@ export async function GET(req: Request) {
         conversations: conversations24hRes.count ?? 0,
         messages: messages24hRes.count ?? 0,
         avgLatencyMs,
+      },
+      last7d: {
+        conversations: conversations7dRes.count ?? 0,
+      },
+      ingestionErrors24h: {
+        count: ingestionErrors24hRes.count ?? 0,
+        details: ingestionErrors24h.map((e) => ({
+          source: e.source,
+          status: e.status,
+          errors: e.errors,
+        })),
+      },
+      knowledgeBase: {
+        totalChunks: chunksRes.count ?? 0,
+        byMunicipality: byMunicipality.map((m) => ({
+          id: m.id,
+          name: m.name,
+          chunks: m.chunks,
+          documents: m.documents,
+        })),
       },
       byMunicipality,
     })

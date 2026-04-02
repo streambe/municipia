@@ -1,6 +1,6 @@
 'use client'
 
-import { useRef, useEffect, type KeyboardEvent } from 'react'
+import { useRef, useEffect, useImperativeHandle, type KeyboardEvent, type Ref } from 'react'
 
 interface ChatInputProps {
   input: string
@@ -8,6 +8,7 @@ interface ChatInputProps {
   onSend: () => void
   isLoading: boolean
   municipalityName: string
+  ref?: Ref<{ focus: () => void }>
 }
 
 export function ChatInput({
@@ -16,8 +17,13 @@ export function ChatInput({
   onSend,
   isLoading,
   municipalityName,
+  ref,
 }: ChatInputProps) {
   const textareaRef = useRef<HTMLTextAreaElement>(null)
+
+  useImperativeHandle(ref, () => ({
+    focus: () => textareaRef.current?.focus(),
+  }))
 
   useEffect(() => {
     textareaRef.current?.focus()
@@ -61,7 +67,7 @@ export function ChatInput({
         <button
           type="submit"
           disabled={isLoading || !input.trim()}
-          className="flex h-10 w-10 shrink-0 items-center justify-center rounded-full bg-primary-600 text-white transition-all hover:bg-primary-700 disabled:opacity-40 disabled:hover:bg-primary-600"
+          className="flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-primary-600 text-white transition-all hover:bg-primary-700 disabled:opacity-40 disabled:hover:bg-primary-600 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
           aria-label="Enviar mensaje"
         >
           <svg

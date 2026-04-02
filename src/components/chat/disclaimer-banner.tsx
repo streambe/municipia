@@ -16,7 +16,7 @@ export function DisclaimerBanner({ onDismiss }: DisclaimerBannerProps) {
       </p>
       <button
         onClick={onDismiss}
-        className="shrink-0 rounded p-0.5 text-disclaimer-text/60 transition-colors hover:text-disclaimer-text"
+        className="shrink-0 rounded min-h-[44px] min-w-[44px] inline-flex items-center justify-center text-disclaimer-text/60 transition-colors hover:text-disclaimer-text focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
         aria-label="Cerrar aviso"
       >
         <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">

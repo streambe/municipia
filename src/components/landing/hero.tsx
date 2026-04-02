@@ -51,7 +51,7 @@ export function Hero() {
 
         <a
           href="#municipios"
-          className="mt-10 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-3.5 text-base font-semibold text-white shadow-lg shadow-primary-600/25 transition-all duration-200 hover:bg-primary-700 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
+          className="mt-10 inline-flex items-center gap-2 rounded-lg bg-primary-600 px-8 py-3.5 min-h-[44px] text-base font-semibold text-white shadow-lg shadow-primary-600/25 transition-all duration-200 hover:bg-primary-700 hover:shadow-xl hover:-translate-y-0.5 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
         >
           Elegí tu municipio
           <svg

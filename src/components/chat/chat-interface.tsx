@@ -25,6 +25,7 @@ function getMessageText(msg: { parts?: Array<{ type: string; text?: string }> })
 
 export function ChatInterface({ municipality }: ChatInterfaceProps) {
   const messagesEndRef = useRef<HTMLDivElement>(null)
+  const inputRef = useRef<{ focus: () => void }>(null)
   const [showDisclaimer, setShowDisclaimer] = useState(true)
   const [input, setInput] = useState('')
 
@@ -57,6 +58,8 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
     if (!text || isLoading) return
     setInput('')
     sendMessage({ text })
+    // Return focus to input after sending
+    requestAnimationFrame(() => inputRef.current?.focus())
   }
 
   return (
@@ -79,7 +82,12 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
       >
         <div className="mx-auto max-w-3xl px-4 py-6 space-y-4">
           {messages.length === 0 && (
-            <WelcomeMessage municipality={municipality} />
+            <WelcomeMessage
+              municipality={municipality}
+              onSuggestionClick={(text) => {
+                setInput(text)
+              }}
+            />
           )}
 
           {messages.map((msg) => (
@@ -99,6 +107,7 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
       </main>
 
       <ChatInput
+        ref={inputRef}
         input={input}
         onInputChange={setInput}
         onSend={handleSend}

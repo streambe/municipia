@@ -2,9 +2,10 @@ import type { Municipality } from '@/types/municipality'
 
 interface WelcomeMessageProps {
   municipality: Municipality
+  onSuggestionClick?: (text: string) => void
 }
 
-export function WelcomeMessage({ municipality }: WelcomeMessageProps) {
+export function WelcomeMessage({ municipality, onSuggestionClick }: WelcomeMessageProps) {
   const defaultMessage = `Hola! Soy Muni, tu asistente de ${municipality.name}. Puedo ayudarte con informacion sobre tramites, servicios, horarios, presupuesto, obras y mas. En que te puedo ayudar?`
 
   return (
@@ -27,12 +28,14 @@ export function WelcomeMessage({ municipality }: WelcomeMessageProps) {
           'Horarios de atencion',
           'Obras en curso',
         ].map((suggestion) => (
-          <span
+          <button
             key={suggestion}
-            className="rounded-full border border-gray-200 px-3 py-1.5 text-sm text-gray-600"
+            type="button"
+            onClick={() => onSuggestionClick?.(suggestion)}
+            className="min-h-[44px] rounded-full border border-gray-200 px-4 py-2 text-sm text-gray-600 transition-colors hover:border-primary-600/30 hover:text-primary-600 hover:bg-primary-50 focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-primary-600"
           >
             {suggestion}
-          </span>
+          </button>
         ))}
       </div>
     </div>

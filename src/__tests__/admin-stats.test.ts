@@ -14,6 +14,7 @@ function mockChain(data: unknown, count: number | null = null) {
   chain.select = vi.fn().mockReturnValue(chain)
   chain.eq = vi.fn().mockReturnValue(chain)
   chain.gte = vi.fn().mockReturnValue(chain)
+  chain.in = vi.fn().mockReturnValue(chain)
   chain.order = vi.fn().mockReturnValue(chain)
   chain.limit = vi.fn().mockReturnValue(chain)
   chain.single = vi.fn().mockResolvedValue({ data, error: null })
@@ -67,8 +68,10 @@ describe('GET /api/admin/stats', () => {
       .mockReturnValueOnce(mockChain(conversations, 1))     // conversations
       .mockReturnValueOnce(mockChain(allMessages, 1))       // total messages
       .mockReturnValueOnce(mockChain(conv24h, 1))           // conversations 24h
+      .mockReturnValueOnce(mockChain(conversations, 1))     // conversations 7d
       .mockReturnValueOnce(mockChain(msg24h, 1))            // messages 24h
       .mockReturnValueOnce(mockChain(ingestionLog, null))   // ingestion_logs
+      .mockReturnValueOnce(mockChain([], 0))                // ingestion errors 24h
 
     const res = await GET(makeReq('test-key'))
     expect(res.status).toBe(200)
