@@ -138,7 +138,7 @@ function normalizeUrl(href: string, baseUrl: string): string | null {
     const url = new URL(href, baseUrl)
     // Strip hash and trailing slash
     url.hash = ''
-    let path = url.pathname.replace(/\/+$/, '') || '/'
+    const path = url.pathname.replace(/\/+$/, '') || '/'
     url.pathname = path
     return url.href
   } catch {

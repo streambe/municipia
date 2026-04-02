@@ -1,5 +1,5 @@
 import { createServerClient } from '@/lib/supabase/server'
-import type { Conversation, Message, MessageSource } from '@/types/conversation'
+import type { Conversation, Message } from '@/types/conversation'
 
 export async function createConversation(
   municipalityId: string,
