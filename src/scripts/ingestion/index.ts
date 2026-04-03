@@ -9,6 +9,10 @@
  *   npx tsx src/scripts/ingestion/index.ts --dry-run   # scrape only, no DB writes
  */
 
+// Load .env.local for local execution
+import { config } from 'dotenv'
+config({ path: '.env.local' })
+
 import { createClient } from '@supabase/supabase-js'
 import { scrapeMunicipality, type ScrapedPage } from './scrapers/municipal-web'
 import { chunkDocument } from './utils/chunking'
