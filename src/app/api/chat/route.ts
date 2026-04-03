@@ -61,12 +61,12 @@ export async function POST(req: Request) {
       )
     }
 
-    // Fetch municipality
+    // Fetch municipality by slug (frontend sends slug, not UUID)
     const supabase = createServerClient()
     const { data: municipality, error: munError } = await supabase
       .from('municipalities')
       .select('*')
-      .eq('id', municipalityId)
+      .eq('slug', municipalityId)
       .eq('enabled', true)
       .single()
 
@@ -77,9 +77,9 @@ export async function POST(req: Request) {
       )
     }
 
-    // RAG: find relevant chunks
+    // RAG: find relevant chunks (use UUID from DB, not slug)
     const { context, chunks } = await retrieveContext(
-      municipalityId,
+      municipality.id,
       lastMessage.content,
       5,
       0.7
@@ -108,13 +108,13 @@ export async function POST(req: Request) {
             // Redact PII from user message before persisting
             await addMessage(
               conversationId,
-              municipalityId,
+              municipality.id,
               'user',
               redactPII(lastMessage.content)
             )
             await addMessage(
               conversationId,
-              municipalityId,
+              municipality.id,
               'assistant',
               text,
               sources

@@ -2,7 +2,7 @@
 
 import { useRef, useEffect, useState, useMemo } from 'react'
 import { useChat } from '@ai-sdk/react'
-import { DefaultChatTransport } from 'ai'
+import { TextStreamChatTransport } from 'ai'
 import { ChatBubble } from './chat-bubble'
 import { ChatInput } from './chat-input'
 import { ChatHeader } from './chat-header'
@@ -31,7 +31,7 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
 
   const transport = useMemo(
     () =>
-      new DefaultChatTransport({
+      new TextStreamChatTransport({
         api: '/api/chat',
         body: { municipalityId: municipality.slug },
       }),
