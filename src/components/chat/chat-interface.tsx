@@ -15,12 +15,17 @@ interface ChatInterfaceProps {
   municipality: Municipality
 }
 
-function getMessageText(msg: { parts?: Array<{ type: string; text?: string }> }): string {
-  if (!msg.parts) return ''
-  return msg.parts
-    .filter((p): p is { type: 'text'; text: string } => p.type === 'text' && typeof p.text === 'string')
-    .map((p) => p.text)
-    .join('')
+function getMessageText(msg: { content?: string; parts?: Array<{ type: string; text?: string }> }): string {
+  // Try parts first (DefaultChatTransport), then content (TextStreamChatTransport)
+  if (msg.parts && msg.parts.length > 0) {
+    const text = msg.parts
+      .filter((p): p is { type: 'text'; text: string } => p.type === 'text' && typeof p.text === 'string')
+      .map((p) => p.text)
+      .join('')
+    if (text) return text
+  }
+  if (typeof msg.content === 'string') return msg.content
+  return ''
 }
 
 export function ChatInterface({ municipality }: ChatInterfaceProps) {
