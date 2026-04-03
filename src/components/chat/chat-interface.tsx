@@ -1,8 +1,6 @@
 'use client'
 
-import { useRef, useEffect, useState, useMemo } from 'react'
-import { useChat } from '@ai-sdk/react'
-import { TextStreamChatTransport } from 'ai'
+import { useRef, useEffect, useState, useCallback } from 'react'
 import { ChatBubble } from './chat-bubble'
 import { ChatInput } from './chat-input'
 import { ChatHeader } from './chat-header'
@@ -15,17 +13,10 @@ interface ChatInterfaceProps {
   municipality: Municipality
 }
 
-function getMessageText(msg: { content?: string; parts?: Array<{ type: string; text?: string }> }): string {
-  // Try parts first (DefaultChatTransport), then content (TextStreamChatTransport)
-  if (msg.parts && msg.parts.length > 0) {
-    const text = msg.parts
-      .filter((p): p is { type: 'text'; text: string } => p.type === 'text' && typeof p.text === 'string')
-      .map((p) => p.text)
-      .join('')
-    if (text) return text
-  }
-  if (typeof msg.content === 'string') return msg.content
-  return ''
+interface ChatMessage {
+  id: string
+  role: 'user' | 'assistant'
+  content: string
 }
 
 export function ChatInterface({ municipality }: ChatInterfaceProps) {
@@ -33,21 +24,8 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
   const inputRef = useRef<{ focus: () => void }>(null)
   const [showDisclaimer, setShowDisclaimer] = useState(true)
   const [input, setInput] = useState('')
-
-  const transport = useMemo(
-    () =>
-      new TextStreamChatTransport({
-        api: '/api/chat',
-        body: { municipalityId: municipality.slug },
-      }),
-    [municipality.slug],
-  )
-
-  const { messages, status, sendMessage, setMessages } = useChat({
-    transport,
-  })
-
-  const isLoading = status === 'submitted' || status === 'streaming'
+  const [messages, setMessages] = useState<ChatMessage[]>([])
+  const [isLoading, setIsLoading] = useState(false)
 
   useEffect(() => {
     messagesEndRef.current?.scrollIntoView({ behavior: 'smooth' })
@@ -58,14 +36,72 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
     setInput('')
   }
 
-  const handleSend = () => {
+  const handleSend = useCallback(async () => {
     const text = input.trim()
     if (!text || isLoading) return
+
+    const userMessage: ChatMessage = {
+      id: crypto.randomUUID(),
+      role: 'user',
+      content: text,
+    }
+
+    const allMessages = [...messages, userMessage]
+    setMessages(allMessages)
     setInput('')
-    sendMessage({ text })
-    // Return focus to input after sending
-    requestAnimationFrame(() => inputRef.current?.focus())
-  }
+    setIsLoading(true)
+
+    try {
+      const res = await fetch('/api/chat', {
+        method: 'POST',
+        headers: { 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          messages: allMessages.map(m => ({ role: m.role, content: m.content })),
+          municipalityId: municipality.slug,
+        }),
+      })
+
+      if (!res.ok) {
+        const errText = await res.text()
+        setMessages(prev => [...prev, {
+          id: crypto.randomUUID(),
+          role: 'assistant',
+          content: errText || 'Hubo un error. Por favor intentá de nuevo.',
+        }])
+        setIsLoading(false)
+        return
+      }
+
+      // Read streaming response
+      const reader = res.body?.getReader()
+      const decoder = new TextDecoder()
+      let assistantContent = ''
+      const assistantId = crypto.randomUUID()
+
+      // Add empty assistant message
+      setMessages(prev => [...prev, { id: assistantId, role: 'assistant', content: '' }])
+
+      if (reader) {
+        while (true) {
+          const { done, value } = await reader.read()
+          if (done) break
+          assistantContent += decoder.decode(value, { stream: true })
+          setMessages(prev =>
+            prev.map(m => m.id === assistantId ? { ...m, content: assistantContent } : m)
+          )
+        }
+      }
+    } catch {
+      setMessages(prev => [...prev, {
+        id: crypto.randomUUID(),
+        role: 'assistant',
+        content: 'No pude conectarme al servidor. Por favor intentá de nuevo más tarde.',
+      }])
+    } finally {
+      setIsLoading(false)
+      requestAnimationFrame(() => inputRef.current?.focus())
+    }
+  }, [input, isLoading, messages, municipality.slug])
 
   return (
     <div className="flex flex-col h-dvh bg-white">
@@ -98,8 +134,8 @@ export function ChatInterface({ municipality }: ChatInterfaceProps) {
           {messages.map((msg) => (
             <ChatBubble
               key={msg.id}
-              role={msg.role as 'user' | 'assistant'}
-              content={getMessageText(msg)}
+              role={msg.role}
+              content={msg.content}
             />
           ))}
 
