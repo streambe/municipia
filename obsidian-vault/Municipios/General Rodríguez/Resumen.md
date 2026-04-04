@@ -18,7 +18,7 @@ address: "Av. Pres. Perón 635"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 8 chunks indexados
+- 69 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

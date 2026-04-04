@@ -10,10 +10,10 @@ Ultima actualizacion: 2026-04-04
 
 ## Metricas
 - **Documentos**: 0
-- **Chunks indexados**: 131
+- **Chunks indexados**: 264
 - **Conversaciones**: 0
 
 ## Historial de Ingestion
 | Fecha | Docs Nuevos | Chunks | Estado |
 |-------|-------------|--------|--------|
-| 2026-04-04 | 0 | 131 | Sync |
+| 2026-04-04 | 0 | 264 | Sync |

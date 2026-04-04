@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "obsidian:sync": "tsx scripts/obsidian/sync-vault.ts",
-    "obsidian:save-conversation": "tsx scripts/obsidian/save-conversation.ts"
+    "obsidian:save-conversation": "tsx scripts/obsidian/save-conversation.ts",
+    "ingest:targeted": "tsx scripts/ingest-targeted.ts"
   },
   "dependencies": {
     "@ai-sdk/anthropic": "^3.0.65",

@@ -18,7 +18,7 @@ address: "Av. Hipólito Yrigoyen 3863"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 131 chunks indexados
+- 264 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

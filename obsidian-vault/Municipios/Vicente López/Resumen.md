@@ -18,7 +18,7 @@ address: "Av. Maipú 2609"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 25 chunks indexados
+- 85 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)
