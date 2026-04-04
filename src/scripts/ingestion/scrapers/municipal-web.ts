@@ -35,8 +35,8 @@ export interface ScrapedPage {
 // ---------------------------------------------------------------------------
 
 const DEFAULT_CONFIG: Partial<ScraperConfig> = {
-  maxPages: 200,
-  maxDepth: 3,
+  maxPages: 500,
+  maxDepth: 4,
   rateLimit: 1000,
 }
 

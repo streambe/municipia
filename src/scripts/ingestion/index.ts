@@ -39,7 +39,36 @@ import { ingestBAAbierta } from './connectors/ba-abierta'
 import { ingestPBAC } from './connectors/pbac'
 import { ingestINDEC } from './connectors/indec'
 import { ingestSocialMedia } from './connectors/social-media'
+import { ingestWikipedia } from './connectors/wikipedia'
+import { ingestGeoData } from './connectors/geo-data'
 import { type IngestResult, type MunicipalityConfig, emptyResult } from './types'
+
+// Playwright-based connectors loaded dynamically (avoid Next.js build issues)
+let _googleSearchMod: { ingestGoogleSearch: (name: string, id: string) => Promise<any> } | null = null
+async function loadGoogleSearch() {
+  if (!_googleSearchMod) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      _googleSearchMod = require('../../../../scripts/ingestion/connectors/google-search')
+    } catch {
+      console.log('  [google-search] Playwright not available, skipping Google Search')
+    }
+  }
+  return _googleSearchMod
+}
+
+let _localNewsMod: { ingestLocalNews: (name: string, id: string) => Promise<any> } | null = null
+async function loadLocalNews() {
+  if (!_localNewsMod) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      _localNewsMod = require('../../../../scripts/ingestion/connectors/local-news')
+    } catch {
+      console.log('  [local-news] Playwright not available, skipping Local News')
+    }
+  }
+  return _localNewsMod
+}
 
 // ---------------------------------------------------------------------------
 // Configuration
@@ -392,6 +421,104 @@ async function processMunicipality(
     stats.sources.push(failedResult)
   }
 
+  // 8. Wikipedia
+  console.log(`\n  --- ${muni.name}: Wikipedia ---`)
+  try {
+    const wikiResult = await ingestWikipedia(muni.name, muni.id)
+    stats.sources.push(wikiResult)
+    if (!dryRun && supabase && municipalityUuid) {
+      await logIngestion(supabase, municipalityUuid, 'wikipedia', wikiResult, startedAt)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] Wikipedia failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('wikipedia', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
+  // 9. Google Search (Playwright — dynamic import)
+  console.log(`\n  --- ${muni.name}: Google Search ---`)
+  try {
+    const googleMod = await loadGoogleSearch()
+    if (googleMod) {
+      const { result: gsResult } = await googleMod.ingestGoogleSearch(muni.name, muni.id)
+      const ingestResult: IngestResult = {
+        source: 'google_search',
+        municipalityId: muni.id,
+        pagesProcessed: gsResult.pagesProcessed,
+        chunksCreated: gsResult.chunksCreated,
+        chunksUpdated: gsResult.chunksUpdated,
+        chunksSkipped: gsResult.chunksSkipped,
+        errors: gsResult.errors,
+        duration: gsResult.duration,
+      }
+      stats.sources.push(ingestResult)
+      if (!dryRun && supabase && municipalityUuid) {
+        await logIngestion(supabase, municipalityUuid, 'google_search', ingestResult, startedAt)
+      }
+    } else {
+      const skipped = emptyResult('google_search', muni.id)
+      skipped.errors.push('Playwright not available')
+      stats.sources.push(skipped)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] Google Search failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('google_search', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
+  // 10. Local News (Playwright — dynamic import)
+  console.log(`\n  --- ${muni.name}: Local News ---`)
+  try {
+    const newsMod = await loadLocalNews()
+    if (newsMod) {
+      const { result: newsResult } = await newsMod.ingestLocalNews(muni.name, muni.id)
+      const ingestResult: IngestResult = {
+        source: 'local_news',
+        municipalityId: muni.id,
+        pagesProcessed: newsResult.pagesProcessed,
+        chunksCreated: newsResult.chunksCreated,
+        chunksUpdated: newsResult.chunksUpdated,
+        chunksSkipped: newsResult.chunksSkipped,
+        errors: newsResult.errors,
+        duration: newsResult.duration,
+      }
+      stats.sources.push(ingestResult)
+      if (!dryRun && supabase && municipalityUuid) {
+        await logIngestion(supabase, municipalityUuid, 'local_news', ingestResult, startedAt)
+      }
+    } else {
+      const skipped = emptyResult('local_news', muni.id)
+      skipped.errors.push('Playwright not available')
+      stats.sources.push(skipped)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] Local News failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('local_news', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
+  // 11. Geo Data
+  console.log(`\n  --- ${muni.name}: Geo Data ---`)
+  try {
+    const geoResult = await ingestGeoData(muni.name, muni.id)
+    stats.sources.push(geoResult)
+    if (!dryRun && supabase && municipalityUuid) {
+      await logIngestion(supabase, municipalityUuid, 'geo_data', geoResult, startedAt)
+    }
+  } catch (err: unknown) {
+    const msg = err instanceof Error ? err.message : String(err)
+    console.error(`  [pipeline] Geo Data failed for ${muni.name}: ${msg}`)
+    const failedResult = emptyResult('geo_data', muni.id)
+    failedResult.errors.push(msg)
+    stats.sources.push(failedResult)
+  }
+
   return stats
 }
 
@@ -416,7 +543,7 @@ async function main() {
 
   console.log('MunicipIA Ingestion Pipeline — Starting...')
   console.log(`Municipalities: ${MUNICIPALITIES.length}`)
-  console.log(`Sources: web, ckan_pba, ckan_nacional, sibom, ba_abierta, pbac, indec, social_media`)
+  console.log(`Sources: web, ckan_pba, ckan_nacional, sibom, ba_abierta, pbac, indec, social_media, wikipedia, google_search, local_news, geo_data`)
   if (dryRun) console.log('MODE: dry-run (no DB writes)')
 
   const supabase = dryRun ? null : createSupabaseAdmin()
