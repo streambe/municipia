@@ -18,7 +18,7 @@ address: "Almirante Brown 901"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 35 chunks indexados
+- 37 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

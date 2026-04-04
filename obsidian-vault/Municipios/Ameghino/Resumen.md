@@ -18,7 +18,7 @@ address: "Av. Mitre 200"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 0 chunks indexados
+- 1 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

@@ -18,7 +18,7 @@ address: "Calle 12 entre 51 y 53"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 0 chunks indexados
+- 2 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

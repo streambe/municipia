@@ -83,7 +83,7 @@ export async function POST(req: Request) {
       municipality.id,
       lastMessage.content,
       5,
-      0.7
+      0.3
     )
 
     // Load Obsidian long-term memory (non-blocking, graceful degradation)

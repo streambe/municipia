@@ -18,7 +18,7 @@ address: "9 de Julio 2150"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 95 chunks indexados
+- 141 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)

@@ -18,7 +18,7 @@ address: "Av. Cazón 1514"
 
 ## Contenido Disponible
 - 0 documentos scrapeados
-- 0 chunks indexados
+- 143 chunks indexados
 
 ## Temas Principales
 - (Sin datos suficientes)
