@@ -2,7 +2,8 @@ import type { Municipality } from '@/types/municipality'
 
 export function buildSystemPrompt(
   municipality: Municipality,
-  context: string
+  context: string,
+  obsidianMemory?: string
 ): string {
   return `Sos ${municipality.agent_name}, el asistente virtual oficial de ${municipality.name}.
 Tu misión es ayudar a los ciudadanos respondiendo consultas sobre trámites, servicios, información pública y normativas del municipio.
@@ -48,6 +49,10 @@ Si el ciudadano pregunta quién sos o cómo funcionás, explicá:
 - Teléfono: ${municipality.phone ?? 'No disponible'}
 - Email: ${municipality.email ?? 'No disponible'}
 - Dirección: ${municipality.address ?? 'No disponible'}
+
+## Memoria de Largo Plazo
+
+${obsidianMemory || '(Sin memoria acumulada para este municipio)'}
 
 ## Contexto recuperado (documentos relevantes)
 

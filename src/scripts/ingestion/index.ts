@@ -15,6 +15,20 @@ config({ path: '.env.local' })
 
 import { createClient } from '@supabase/supabase-js'
 import { scrapeMunicipality, type ScrapedPage } from './scrapers/municipal-web'
+// Playwright scraper loaded dynamically only when running as script (not during Next.js build)
+let _playwrightMod: { scrapeWithPlaywright: (config: any) => Promise<ScrapedPage[]> } | null = null
+async function scrapeWithPlaywright(config: { baseUrl: string; municipalityName: string; maxPages: number; rateLimit: number; maxDepth: number }): Promise<ScrapedPage[]> {
+  if (!_playwrightMod) {
+    try {
+      // eslint-disable-next-line @typescript-eslint/no-require-imports
+      _playwrightMod = require('../../../../scripts/ingestion/scrapers/municipal-web-playwright')
+    } catch {
+      console.log('  [playwright] Playwright not available, skipping SPA scraping')
+      return []
+    }
+  }
+  return _playwrightMod!.scrapeWithPlaywright(config)
+}
 import { chunkDocument } from './utils/chunking'
 import { redactPII } from './utils/pii-detector'
 import { isDocumentChanged, upsertDocument, upsertChunks } from './utils/dedup'
@@ -152,6 +166,24 @@ async function processWebScraper(
     result.errors.push(msg)
     result.duration = Date.now() - startTime
     return result
+  }
+
+  // If Cheerio scraper got 0 results, try Playwright (for SPA sites)
+  if (pages.length === 0) {
+    console.log(`  [pipeline] Cheerio got 0 pages — trying Playwright (headless browser)...`)
+    try {
+      pages = await scrapeWithPlaywright({
+        baseUrl: muni.baseUrl,
+        municipalityName: muni.name,
+        maxPages: 100,
+        rateLimit: 1500,
+        maxDepth: 2,
+      })
+    } catch (err: unknown) {
+      const msg = err instanceof Error ? err.message : String(err)
+      console.error(`  [pipeline] Playwright also failed for ${muni.name}: ${msg}`)
+      result.errors.push(`Playwright: ${msg}`)
+    }
   }
 
   result.pagesProcessed = pages.length
@@ -409,6 +441,18 @@ async function main() {
     console.log(`  ${s.municipality}: ${summarizeResults(s.sources)}`)
     for (const src of s.sources) {
       console.log(`    - ${src.source}: ${src.pagesProcessed} pages, ${src.chunksCreated} chunks, ${src.errors.length} errors`)
+    }
+  }
+
+  // Sync Obsidian vault with updated data
+  if (!dryRun) {
+    console.log('\nSyncing Obsidian vault...')
+    try {
+      const { execSync } = await import('child_process')
+      execSync('npx tsx scripts/obsidian/sync-vault.ts', { stdio: 'inherit' })
+      console.log('Obsidian vault sync complete.')
+    } catch (err) {
+      console.warn('Obsidian vault sync failed (non-fatal):', err)
     }
   }
 }

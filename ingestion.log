@@ -1,0 +1,759 @@
+◇ injecting env (6) from .env.local // tip: ⌘ override existing { override: true }
+MunicipIA Ingestion Pipeline — Starting...
+Municipalities: 8
+Sources: web, ckan_pba, ckan_nacional, sibom, ba_abierta, pbac, indec, social_media
+
+============================================================
+Processing Vicente López (vicente-lopez)
+============================================================
+
+  --- Vicente López: Web Scraper ---
+  [pipeline] Scraping https://www.vicentelopez.gov.ar...
+  [scraper] Fetching robots.txt for https://www.vicentelopez.gov.ar
+  [pipeline] Scraped 200 pages
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/agenda/organigrama: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/agenda/delegaciones: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/agenda/fiscalias: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/agenda/prensa: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2025-01-01T00:00:00&end=2025-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2024-01-01T00:00:00&end=2024-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2023-01-01T00:00:00&end=2023-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2022-01-01T00:00:00&end=2022-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2021-01-01T00:00:00&end=2021-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2020-01-01T00:00:00&end=2020-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2019-01-01T00:00:00&end=2019-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2018-01-01T00:00:00&end=2018-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2017-01-01T00:00:00&end=2017-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2016-01-01T00:00:00&end=2016-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2015-01-01T00:00:00&end=2015-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2014-01-01T00:00:00&end=2014-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2013-01-01T00:00:00&end=2013-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/boletin_oficial/search?text=&start=2012-01-01T00:00:00&end=2012-12-31T23:59:59&content=false&tag=false&search=advanced: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/4: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/5: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/6: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/7: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/8: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/9: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/10: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/11: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/12: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/13: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/14: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/15: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/16: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/17: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/18: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/19: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/20: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/21: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/22: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/23: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/24: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/25: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/26: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/27: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/28: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/29: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/30: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/31: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/32: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/33: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/34: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/35: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/36: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/37: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/38: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/39: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/40: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/41: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/42: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/43: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/44: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/45: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/46: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/47: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/48: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/49: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/50: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/51: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/52: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/53: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/54: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/55: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/56: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/57: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/58: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/59: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/60: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/61: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/62: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/63: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/64: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/65: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/66: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/67: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/68: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/69: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/70: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/71: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/72: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/73: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/74: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/75: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/76: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/77: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/78: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/79: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/80: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/81: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/82: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/83: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/84: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/85: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/86: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/87: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/88: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/89: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/90: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/91: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/92: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/93: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/94: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/95: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/96: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/97: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.vicentelopez.gov.ar/98: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- Vicente López: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: Vicente López, vicente lopez
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: Vicente López, vicente lopez
+  [ckan] HTTP 500 for https://datos.gob.ar/api/3/action/package_search?q=Vicente%20L%C3%B3pez&rows=100
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 1 errors
+
+  --- Vicente López: SIBOM ---
+  [sibom] Attempting to access SIBOM for Vicente López...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/vicente-lopez (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=Vicente%20L%C3%B3pez (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=Vicente%20L%C3%B3pez (112 chars)
+  [sibom] Vicente López: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- Vicente López: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for Vicente López...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- Vicente López: PBAC ---
+  [pbac] Attempting PBAC ingestion for Vicente López...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for Vicente López (planned for Sprint 4+).
+
+  --- Vicente López: INDEC ---
+  [indec] Fetching census data for Vicente López...
+  [indec] Using Censo 2022 fallback for Vicente López: 274.082 hab, 106.834 hogares
+
+  --- Vicente López: Social Media ---
+  [social-media] Checking social media API credentials for Vicente López...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for Vicente López.
+
+  Summary for Vicente López: 204 pages, 1 chunks, 118 errors, 361423ms
+
+============================================================
+Processing San Isidro (san-isidro)
+============================================================
+
+  --- San Isidro: Web Scraper ---
+  [pipeline] Scraping https://www.sanisidro.gob.ar...
+  [scraper] Fetching robots.txt for https://www.sanisidro.gob.ar
+  [scraper] Error fetching https://www.sanisidro.gob.ar: fetch failed
+  [pipeline] Scraped 0 pages
+
+  --- San Isidro: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: San Isidro, san isidro
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: San Isidro, san isidro
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- San Isidro: SIBOM ---
+  [sibom] Attempting to access SIBOM for San Isidro...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/san-isidro (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=San%20Isidro (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=San%20Isidro (112 chars)
+  [sibom] San Isidro: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- San Isidro: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for San Isidro...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- San Isidro: PBAC ---
+  [pbac] Attempting PBAC ingestion for San Isidro...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for San Isidro (planned for Sprint 4+).
+
+  --- San Isidro: INDEC ---
+  [indec] Fetching census data for San Isidro...
+  [indec] Using Censo 2022 fallback for San Isidro: 295.217 hab, 111.256 hogares
+
+  --- San Isidro: Social Media ---
+  [social-media] Checking social media API credentials for San Isidro...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for San Isidro.
+
+  Summary for San Isidro: 4 pages, 1 chunks, 1 errors, 7089ms
+
+============================================================
+Processing Morón (moron)
+============================================================
+
+  --- Morón: Web Scraper ---
+  [pipeline] Scraping https://www.moron.gob.ar...
+  [scraper] Fetching robots.txt for https://www.moron.gob.ar
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://www.moron.gob.ar/portalPersonas/login/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://www.instagram.com/munidemoron?hl=es\%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://twitter.com/MunicipioMoron/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://www.facebook.com/MunicipioMoron?locale=es_LA\%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://play.google.com/store/apps/details?id=moronamano.moronamano&hl=es_AR&gl=US&pli=1\%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://play.google.com/store/apps/details?id=ar.gob.moron.botonpanico&hl=es_AR&gl=US\%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/&
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22http://servicios.infoleg.gob.ar/infolegInternet/anexos/20000-24999/20620/norma.htm/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22http://servicios.infoleg.gob.ar/infolegInternet/anexos/45000-49999/47677/norma.htm/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/SOLICITUD-CUD.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Mental-Intelectual.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-discapacidad-Intelectual-mental.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Mental-Epilepsia-1.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Discapacidad-Visual.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-Discapacidad-Visual.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-Discapacidad-Auditiva.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-Discapacidad-Visceral.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Visceral-Cardiovascular.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-Discapacidad-Visceral-Cardiologica.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Visceral-Renal-Urologica.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-requerida-Discapacidad-Visceral-Renal.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-requerida-discapacidad-Hep--tica.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-requerida-Discapacidad-Visceral-Respiratoria.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Documentacion-Requerida-Discapacidad-Motora.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Motor-columna.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Motor-Artritis-Reumatoidea-1.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Motor-Miastenia-Gravis.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22/wp-content/uploads/2022/02/Planilla-Motor-Esclerosis-Multiple-1.pdf/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://cutt.ly/SghLAHN/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://cutt.ly/dghLDjJ/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22https://estacionamiento.moron.gob.ar//%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22mailto:estacionamiento.medido@moron.gob.ar/%22
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22http://www.moron.gob.ar/nuestra-gestion/transito/estacionamiento-medido
+  [scraper] HTTP 404 for https://www.moron.gob.ar/%22http://www.transporteba.gba.gov.ar//%22
+  [pipeline] Scraped 193 pages
+  [pipeline] Error processing https://www.moron.gob.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-cronograma-de-servicios-para-el-fin-de-semana-largo: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-realizara-una-nueva-edicion-de-la-bicicleteada-por-malvinas: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-inauguro-la-nueva-plaza-viejo-urbano-en-el-centro-de-moron: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/telefonos-utiles: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-realizara-una-nueva-edicion-de-la-bicicleteada-por-malvinas/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-realizara-una-nueva-edicion-de-la-bicicleteada-por-malvinas/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-inauguro-la-nueva-plaza-viejo-urbano-en-el-centro-de-moron/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-inauguro-la-nueva-plaza-viejo-urbano-en-el-centro-de-moron/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/emotivo-homenaje-de-moron-a-los-veteranos-y-caidos-en-malvinas: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/15-mil-personas-corrieron-por-la-memoria-la-verdad-y-la-justicia-en-moron: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-miles-de-personas-participaron-de-la-conmemoracion-a-50-anos-del-golpe: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-cronograma-de-servicios-por-los-feriados-del-dia-de-la-memoria: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-y-axel-kicillof-entregaron-430-escrituras-a-familias-de-moron: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-conmemora-los-50-anos-del-golpe-civico-militar-con-actividades-por-la-memoria-la-verdad-y-la-justicia: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/el-intendente-lucas-ghi-recorrio-junto-a-autoridades-municipales-y-provinciales-el-centro-socioeducativo-y-comunitario-de-moron-sur: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/index.php/vacantes-en-los-jardines-municipales: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/index.php/tramites-2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/ejes-de-gobierno: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/transparencia: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/institucional: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/volvieron-las-ferias-y-mercados-a-los-barrios-de-moron: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-quienes-mantengan-deudas-por-cuota-alimentaria-no-podran-habilitar-comercios: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-vuelve-a-clases-con-descuentos-en-articulos-escolares-2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/mas-puesto-de-trabajo-para-los-y-las-moronenses: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-abre-la-inscripcion-al-programa-de-gestion-comercial-para-fortalecer-a-las-pymes: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/emotivo-homenaje-de-moron-a-los-veteranos-y-caidos-en-malvinas/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/emotivo-homenaje-de-moron-a-los-veteranos-y-caidos-en-malvinas/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/15-mil-personas-corrieron-por-la-memoria-la-verdad-y-la-justicia-en-moron/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/15-mil-personas-corrieron-por-la-memoria-la-verdad-y-la-justicia-en-moron/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-miles-de-personas-participaron-de-la-conmemoracion-a-50-anos-del-golpe/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-miles-de-personas-participaron-de-la-conmemoracion-a-50-anos-del-golpe/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-cronograma-de-servicios-por-los-feriados-del-dia-de-la-memoria/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-cronograma-de-servicios-por-los-feriados-del-dia-de-la-memoria/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-y-axel-kicillof-entregaron-430-escrituras-a-familias-de-moron/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/lucas-ghi-y-axel-kicillof-entregaron-430-escrituras-a-familias-de-moron/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-conmemora-los-50-anos-del-golpe-civico-militar-con-actividades-por-la-memoria-la-verdad-y-la-justicia/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/moron-conmemora-los-50-anos-del-golpe-civico-militar-con-actividades-por-la-memoria-la-verdad-y-la-justicia/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/el-intendente-lucas-ghi-recorrio-junto-a-autoridades-municipales-y-provinciales-el-centro-socioeducativo-y-comunitario-de-moron-sur/2: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.moron.gob.ar/el-intendente-lucas-ghi-recorrio-junto-a-autoridades-municipales-y-provinciales-el-centro-socioeducativo-y-comunitario-de-moron-sur/3: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- Morón: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: Morón, moron
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: Morón, moron
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- Morón: SIBOM ---
+  [sibom] Attempting to access SIBOM for Morón...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/moron (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=Mor%C3%B3n (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=Mor%C3%B3n (112 chars)
+  [sibom] Morón: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- Morón: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for Morón...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- Morón: PBAC ---
+  [pbac] Attempting PBAC ingestion for Morón...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for Morón (planned for Sprint 4+).
+
+  --- Morón: INDEC ---
+  [indec] Fetching census data for Morón...
+  [indec] Using Censo 2022 fallback for Morón: 351.710 hab, 126.477 hogares
+
+  --- Morón: Social Media ---
+  [social-media] Checking social media API credentials for Morón...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for Morón.
+
+  Summary for Morón: 197 pages, 1 chunks, 41 errors, 693429ms
+
+============================================================
+Processing La Plata (la-plata)
+============================================================
+
+  --- La Plata: Web Scraper ---
+  [pipeline] Scraping https://www.laplata.gob.ar...
+  [scraper] Fetching robots.txt for https://www.laplata.gob.ar
+  [pipeline] Scraped 2 pages
+  [pipeline] Error processing https://www.laplata.gob.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- La Plata: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: La Plata, la plata
+  [ckan] Found 1 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 3 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: La Plata, la plata
+  [ckan] Found 8 datasets on Datos Argentina
+  [ckan] Skipping dataset "Precios Internacionales de Minerales del SIACAM" — formats: XLSX
+  [ckan] Error downloading resource https://ide.transporte.gob.ar/geoserver/observ/ows?service=WFS&version=1.0.0&request=GetFeature&typeName=observ:_3.4.4.1.5_aerodromos_anac_2018.view&maxFeatures=700&outputFormat=application%2Fjson: fetch failed
+  [ckan] Datos Argentina: 58 resources processed, 1 errors
+
+  --- La Plata: SIBOM ---
+  [sibom] Attempting to access SIBOM for La Plata...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/la-plata (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=La%20Plata (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=La%20Plata (112 chars)
+  [sibom] La Plata: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- La Plata: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for La Plata...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- La Plata: PBAC ---
+  [pbac] Attempting PBAC ingestion for La Plata...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for La Plata (planned for Sprint 4+).
+
+  --- La Plata: INDEC ---
+  [indec] Fetching census data for La Plata...
+  [indec] Using Censo 2022 fallback for La Plata: 740.369 hab, 270.611 hogares
+
+  --- La Plata: Social Media ---
+  [social-media] Checking social media API credentials for La Plata...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for La Plata.
+
+  Summary for La Plata: 67 pages, 62 chunks, 3 errors, 45487ms
+
+============================================================
+Processing Lanús (lanus)
+============================================================
+
+  --- Lanús: Web Scraper ---
+  [pipeline] Scraping https://www.lanus.gob.ar...
+  [scraper] Fetching robots.txt for https://www.lanus.gob.ar
+  [scraper] HTTP 404 for https://www.lanus.gob.ar/areas-gobierno
+  [scraper] HTTP 500 for https://www.lanus.gob.ar/fichas/5622-historia-del-partido-de-lanus
+  [scraper] HTTP 404 for https://www.lanus.gob.ar/cdn-cgi/l/email-protection
+  [pipeline] Scraped 200 pages
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/9-lanus-digital: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/licencias: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/1-consulta-tu-deuda: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/transparencia: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/infracciones: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/12-documentos-oficiales: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/7-centro-de-atencion-vecinal: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/fichas/63-municipio-de-lanus: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/fichas/62-intendente: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/2-licencia-de-conducir: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/tramites-y-servicios/7-clave-fiscal: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=QfJjiOPAPtEXrycxnMZYpW0D.BEgTU8l8GRI.67lPf0-1775195943.2859244-1.0.1.1-Pgqgw2szUs8LFWr2LBXs2DwF2rgmfj8Hw6cQA6g2o8I: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=ifYRcxl2fNvU7arOTTEJRCXLPttNGD6ADNk9IpgOl_Y-1775195945.4951484-1.0.1.1-cMhIMn_Qxt4KVjQxBAe2wy5cBkJq03r7wkicXYZCDZM: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=rT.mF4g1rQec2hvzyuLUFSj2iTqta.ad_r2StXHSlHY-1775195946.625465-1.0.1.1-LABDjAufKVfjKmQN6a34EjbUaC1MgKoUyxPJTo2lqcA: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 8s (attempt 3/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=bVV2lXnnS3XjnJMWY8qpyyylDGRJQQFELUIarERJ6vs-1775195949.09489-1.0.1.1-GFTNZYhBa8D16IdubuAWqPsHRP5tfzwH0fFJc_5UhjQ: Voyage AI: max retries exceeded (429)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=06Uo8SVHbLUzXZeCX6uaH.6Wl_ajM.67h0NNwvUYcj8-1775195950.3467143-1.0.1.1-jI70jQ_q5zH1qOMziv61yxEgLWSljV0oXIXfMRcwRr4: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=ZjfafFLbTzFdfG8AO3ECN0EiXRQyw3GgHCy3MtRnTZQ-1775195951.4849083-1.0.1.1-1417inu955zyqSWZKbQqRLOCqVXM9Iy4mzq79CG5oA8: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=iZtCFNXStPNRzc0tLvLVfDJQ9Icdbb8PMJiaITXHwxo-1775195952.6948988-1.0.1.1-wTSXecMuR2ASDTusB4f.SzJfcG3Q0d5ECMq9araALfg: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 8s (attempt 3/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=LI6401VQSuRzs86HwNNTZD.Pc.RcGgJWtFFWcLnRMDE-1775195953.8549545-1.0.1.1-9eSUiGKvzaabB2_fyVfieYq2xXEnEI7FlwzgBnW5uAo: Voyage AI: max retries exceeded (429)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=ljVFe8lwnqCv9SIJP_9qevKL0eYGbLagezTHIvWj.hs-1775195954.994859-1.0.1.1-aCQeeDIU76fO9sQqY0nJ5VFgN6qtX5SG_H7sMGKcdas: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 8s (attempt 3/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=NYbtX64XLYui_pLzh53yc8.5vpAQnnmX.5JBcNL97Ao-1775195957.2860873-1.0.1.1-B2_o2kFL1qmfVssNNcOQoszGc68hkVDIZxNrUw0KmAo: Voyage AI: max retries exceeded (429)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=UQ_LO_ENdJbgJMHr6iZB_ttbNFCzFX3SuMSh8Hjf77Y-1775195958.434998-1.0.1.1-WXXFG4vJgbIxIEubjM49HUIcGZrdYhLbfkbFO_T4474: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=GVxEg08MVmog3oeV7KflHrmHGcRLj.6ixf8S5feCHsQ-1775195960.7961464-1.0.1.1-ArYWM2LZlpUTRZ1h26.LRDAABujeZoZqhSRDY1nZs9k: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=rTN8lLzQv26B4yhBn_XKdiE27s3htQN.sBu6Lf0o1HE-1775195961.9488351-1.0.1.1-yAQ2y1ipj8bLw1S_eyVanmCUpEcqUzhEbo524stlFcs: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=uh1SZ0Ex8xTewNLcDoRONRCqXQBj6KlxkXdds1hlPfQ-1775195963.135309-1.0.1.1-Cf9RGf5V8PXUKcXo_zbfIyOE7yI5RRW_hWEwWkFefa0: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=gxvXC3aMg1utwn0KspZQG0iapB.pivHfLj.Wc7Sk8sk-1775195964.2452338-1.0.1.1-EAFZJxDvsi4YPsGUb0pfR__574zVmSrPAjhgsAT_W2Y: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=uFvsmUSt8kbdAszkpZa.u9xacv3jG_07gu0BjrH0smk-1775195965.365899-1.0.1.1-zX45ubwssRXqmJ5bBrNs9BhF0TOM_WqBG5Vvi0l6.8U: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=JhIC8vIZC4FLG0ZH3HgDM87TuVUC93H2SH6A7NUYRqg-1775195966.4957697-1.0.1.1-2KDWmMyw.EoV.ectzYNX4KvtDxil7XjvS_Tv1V5mS3s: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=IdG5ZPz7XncmC_GU_k.f0hbsfPrrO9WMuGTuc_dLFvA-1775195967.6080906-1.0.1.1-0GPFlRRnX7J29zq2997qqJRcGUFPGIcjld5xAopjKIo: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=J0XXdQRXAaMTPd_4IhacnunGQfR_72eTUefF3jEmzzE-1775195968.7209082-1.0.1.1-Q.wQCTuhIeTRsAjno7m_gUel65ZQ9bhI7MH9rJJQe4Q: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=XiH3Zx80bHBLMLcb3qbnAHIysGYHWfPZttBlNpIk.8M-1775195969.8553135-1.0.1.1-q4MY84MqZJW28zV4etKymWKoolYd3vr1TFpjyOhZpjc: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/fichas/6092-declaracion-jurada-anticipo-82024-y-posteriores: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/fichas/31-declaracion-jurada-anticipo-72024-y-anteriores: [dedup] Failed to insert document: TypeError: fetch failed
+[dedup] Error checking document https://www.lanus.gob.ar/cdn-cgi/content?id=EvkKnNkaQG_7lG21sr.oXBdi79IdK6ldkY2MTtWVFwo-1775195973.2672281-1.0.1.1-lPz4fIdGYUk.TG_QreidDhsINfcgUE8X7Qs4rZfJDXk: TypeError: fetch failed
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=EvkKnNkaQG_7lG21sr.oXBdi79IdK6ldkY2MTtWVFwo-1775195973.2672281-1.0.1.1-lPz4fIdGYUk.TG_QreidDhsINfcgUE8X7Qs4rZfJDXk: [dedup] Failed to insert document: TypeError: fetch failed
+[dedup] Error checking document https://www.lanus.gob.ar/cdn-cgi/content?id=_C3Ffr7gcujQetxEmxb7sctLDEaar7j0VwDDvLEu6ng-1775195974.4057305-1.0.1.1-EL5.dP_oHVDT7wno76KoZSUi8L1MEMJ0hNN4f6kSnfE: TypeError: fetch failed
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=_C3Ffr7gcujQetxEmxb7sctLDEaar7j0VwDDvLEu6ng-1775195974.4057305-1.0.1.1-EL5.dP_oHVDT7wno76KoZSUi8L1MEMJ0hNN4f6kSnfE: [dedup] Failed to insert document: TypeError: fetch failed
+[dedup] Error checking document https://www.lanus.gob.ar/cdn-cgi/content?id=B2ALk8DogecFgXkDFRGhpvTJP9G3kCswPLNOgBiqOXQ-1775195975.5073707-1.0.1.1-vgRpMOeV684xIgbTMTvybNnq50EHO0OXwiS9OBh8pAA: TypeError: fetch failed
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=B2ALk8DogecFgXkDFRGhpvTJP9G3kCswPLNOgBiqOXQ-1775195975.5073707-1.0.1.1-vgRpMOeV684xIgbTMTvybNnq50EHO0OXwiS9OBh8pAA: [dedup] Failed to insert document: TypeError: fetch failed
+[dedup] Error checking document https://www.lanus.gob.ar/documentos-oficiales?categoria=21&buscar=: TypeError: fetch failed
+  [pipeline] Error processing https://www.lanus.gob.ar/documentos-oficiales?categoria=21&buscar=: [dedup] Failed to insert document: TypeError: fetch failed
+[dedup] Error checking document https://www.lanus.gob.ar/cdn-cgi/content?id=Kwuai8itw4QHROxzjqfCYwtihYVfxyLOL2uhii7.Jdo-1775195976.6354132-1.0.1.1-nd.wekWoLoDHW6ZP6hHx0b7NpQw78R_zcHMqbeWkgiI: TypeError: fetch failed
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=Kwuai8itw4QHROxzjqfCYwtihYVfxyLOL2uhii7.Jdo-1775195976.6354132-1.0.1.1-nd.wekWoLoDHW6ZP6hHx0b7NpQw78R_zcHMqbeWkgiI: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=BuNQVNcwDdKaK8YMB0KycOOMUXFQkxOqUUEfR8PATg0-1775195977.7651808-1.0.1.1-hWf1e80gQH5deLIq4rMuA9G1M3FPMg67p8JHBYPOPX0: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/documentos-oficiales: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=SbwUpklJQpHinv8ZM4MxL_mCfmEqQERwLkfl4wbhIuI-1775195978.865129-1.0.1.1-G.eNSdg_gcP83F.NxNMC5z1l5nBGb3ABxQxh6g4t7QA: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=iYp0yJ1eIa0f2n9Ss7yZxhFWkW0sEe.xVhlv73AjYw0-1775195979.97557-1.0.1.1-A3nOfBfMP9l1oyWoIrJM3Pi8V9oDylunm6CyojXk3dY: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=kyroZmVWjdZQZwMRMZOLTDthw4afCO4NVqAoLc9_4a4-1775195981.095302-1.0.1.1-Rgucwv7KJAeXUnqCXhpYL1Y2qxIIVXqM_rNaf.jnHJ0: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=.haJodirwa.NuLLAgwN86wDK5bBIubuE2NqzXOwN0rA-1775195982.2061248-1.0.1.1-fV1HvSn8y06IkD6N5D85K0z9SXQ1ukaT4jRoR80hAjw: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=SuTxEumO_T_8kxiR.nfZEhGuG9HGVIvGva61K_ARKhY-1775195983.336252-1.0.1.1-QZRSdzTc82AJqFNsMCkaHiO.zDSd3avfWcz8sLPj3_4: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=dEu8NL88hOLvztnXOAbxcY4NTg4Rbvb7KI9FULhwhdQ-1775195985.5860069-1.0.1.1-huN3Rsw0XKiaqI8XCaVoYX4qHm57ahhzdaXRxpdZFw4: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 8s (attempt 3/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=UyTGSDs9QUd9BQDRAISt8jFOtWQPVAcQOVbbTyZBbt0-1775195994.1756706-1.0.1.1-ja9Ryk3fAYCPFIZ60QSLNInqlEjVqqA6_6uUP408MBk: Voyage AI: max retries exceeded (429)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=dyFJst5wVESG3SUIx0NwrWVPchOyaeI_xDwiEUZXORs-1775195995.2950356-1.0.1.1-RkTLyh6Ku3h9RGoMPdRylpIK.3.NB2w74qyOueo2MWY: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=mbhxylJdumriD2XIXNnfjcWKh83Qj_UujAbx8aZlUiQ-1775195996.4151895-1.0.1.1-D4h3tGKC6ofJX3NqhNoXcDi0OcIyT18vhdJOV14_LS8: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/noticias?page=1: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=KLAsVlSmf2XGSpWeG6rmfdGL7facazRNPpiA5FkS_2I-1775195997.5467477-1.0.1.1-slR6GY8NRZKqRJIsmwKEqGhaUSygYb0ykY27Zl3bM.s: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=fqdXg8b8W12RfqO5.znz4z6Az2qCWowe7j1JLLtXUEE-1775195998.695539-1.0.1.1-0j_j1NQPIgoLJ0OLMcEM1nmBhFLG8kEFl.sdhSuGjqM: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [embeddings] Rate limited, waiting 2s (attempt 1/3)
+  [embeddings] Rate limited, waiting 4s (attempt 2/3)
+  [embeddings] Rate limited, waiting 8s (attempt 3/3)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=nHbxdRdK8O0sPw5hzYLYjXhV0skRr97lj8vgzLPOaLE-1775195999.9152055-1.0.1.1-lZ0KQwZxALt.vYmBNY5AsrnzhyXmHSLZtqJX9RQBiS4: Voyage AI: max retries exceeded (429)
+  [pipeline] Error processing https://www.lanus.gob.ar/cdn-cgi/content?id=ngFvkxfrggrzXw5SzI5Gz0eDE1rw4LWpq.3nncR3vbQ-1775196001.0352166-1.0.1.1-yVgyGOrYjvJGmLjQZTf03u.j81vJXvIEpW4QEDeJSQE: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- Lanús: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: Lanús, lanus
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: Lanús, lanus
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- Lanús: SIBOM ---
+  [sibom] Attempting to access SIBOM for Lanús...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/lanus (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=Lan%C3%BAs (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=Lan%C3%BAs (112 chars)
+  [sibom] Lanús: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- Lanús: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for Lanús...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- Lanús: PBAC ---
+  [pbac] Attempting PBAC ingestion for Lanús...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for Lanús (planned for Sprint 4+).
+
+  --- Lanús: INDEC ---
+  [indec] Fetching census data for Lanús...
+  [indec] Using Censo 2022 fallback for Lanús: 469.735 hab, 163.283 hogares
+
+  --- Lanús: Social Media ---
+  [social-media] Checking social media API credentials for Lanús...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for Lanús.
+
+  Summary for Lanús: 204 pages, 45 chunks, 55 errors, 63860182ms
+
+============================================================
+Processing General Rodríguez (general-rodriguez)
+============================================================
+
+  --- General Rodríguez: Web Scraper ---
+  [pipeline] Scraping https://www.generalrodriguez.gob.ar...
+  [scraper] Fetching robots.txt for https://www.generalrodriguez.gob.ar
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/institucional
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/licencias-de-conducir
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/impuesto-patente-automotor
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/regularizacion-dominial
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/defensa-del-consumidor
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/boletinoficial/2025
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/situacion-economica
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/licitaciones-privadas/actuales
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/index.html
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/about.html
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/contact.html
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/autoridades
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/bloques
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/comisiones
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/boletinoficial/index.php?a=2025
+  [scraper] HTTP 404 for http://www.generalrodriguez.gob.ar/institucional
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/pasadas
+  [scraper] HTTP 404 for https://www.generalrodriguez.gob.ar/tramites/index.html
+  [pipeline] Scraped 99 pages
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/se-realizo-la-tercera-fiesta-municipal-de-la-empanada-rodriguense: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/presentacion-del-plan-de-turismo-sustentable-me-gusta-general-rodriguez: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/reconocimiento-a-la-atleta-cristina-rodriguez: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/se-realizo-una-nueva-convocatoria-para-ingresar-a-la-policia-bonaerense: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/jovenes-ciclistas-viajan-a-espana-para-participar-en-una-competencia-internacional: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/reconocimiento-al-doctor-roberto-arturo-moya: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/la-ciudad: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/datos-utiles: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/contacto: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/tramites: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/transparencia: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/cultura: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/deportes: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/educacion: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/juventud: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/museo: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/obrasparticulares: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/hcd: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/turismo: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/zoonosis: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/mapainteractivo: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/tasas: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/tiendapopular: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/megustaver: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/licitaciones: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing http://www.generalrodriguez.gob.ar/radio: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+  [pipeline] Error processing https://www.generalrodriguez.gob.ar/noticias/category/desarrollo-tecnologico: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- General Rodríguez: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: General Rodríguez, general rodriguez
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: General Rodríguez, general rodriguez
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- General Rodríguez: SIBOM ---
+  [sibom] Attempting to access SIBOM for General Rodríguez...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/general-rodriguez (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=General%20Rodr%C3%ADguez (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=General%20Rodr%C3%ADguez (112 chars)
+  [sibom] General Rodríguez: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- General Rodríguez: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for General Rodríguez...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- General Rodríguez: PBAC ---
+  [pbac] Attempting PBAC ingestion for General Rodríguez...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for General Rodríguez (planned for Sprint 4+).
+
+  --- General Rodríguez: INDEC ---
+  [indec] Fetching census data for General Rodríguez...
+  [indec] Using Censo 2022 fallback for General Rodríguez: 109.024 hab, 34.312 hogares
+
+  --- General Rodríguez: Social Media ---
+  [social-media] Checking social media API credentials for General Rodríguez...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for General Rodríguez.
+
+  Summary for General Rodríguez: 103 pages, 1 chunks, 30 errors, 157734ms
+
+============================================================
+Processing Florentino Ameghino (ameghino)
+============================================================
+
+  --- Florentino Ameghino: Web Scraper ---
+  [pipeline] Scraping https://www.ameghino.gob.ar...
+  [scraper] Fetching robots.txt for https://www.ameghino.gob.ar
+  [scraper] HTTP 404 for https://www.ameghino.gob.ar/cdn-cgi/l/email-protection
+  [pipeline] Scraped 2 pages
+  [pipeline] Error processing https://www.ameghino.gob.ar/: [dedup] Failed to insert document: duplicate key value violates unique constraint "documents_municipality_id_content_hash_key"
+
+  --- Florentino Ameghino: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: Ameghino, ameghino, Florentino Ameghino
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: Ameghino, ameghino, Florentino Ameghino
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- Florentino Ameghino: SIBOM ---
+  [sibom] Attempting to access SIBOM for Florentino Ameghino...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/ameghino (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=Florentino%20Ameghino (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=Florentino%20Ameghino (112 chars)
+  [sibom] Florentino Ameghino: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- Florentino Ameghino: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for Florentino Ameghino...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- Florentino Ameghino: PBAC ---
+  [pbac] Attempting PBAC ingestion for Florentino Ameghino...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for Florentino Ameghino (planned for Sprint 4+).
+
+  --- Florentino Ameghino: INDEC ---
+  [indec] Fetching census data for Florentino Ameghino...
+  [indec] Using Censo 2022 fallback for Florentino Ameghino: 9.893 hab, 3.541 hogares
+
+  --- Florentino Ameghino: Social Media ---
+  [social-media] Checking social media API credentials for Florentino Ameghino...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for Florentino Ameghino.
+
+  Summary for Florentino Ameghino: 6 pages, 1 chunks, 2 errors, 12107ms
+
+============================================================
+Processing Tigre (tigre)
+============================================================
+
+  --- Tigre: Web Scraper ---
+  [pipeline] Scraping https://www.tigre.gob.ar...
+  [scraper] Fetching robots.txt for https://www.tigre.gob.ar
+  [scraper] Error fetching https://www.tigre.gob.ar: fetch failed
+  [pipeline] Scraped 0 pages
+
+  --- Tigre: CKAN ---
+  [ckan] Querying Datos Abiertos PBA for: Tigre, tigre
+  [ckan] Found 0 datasets on Datos Abiertos PBA
+  [ckan] Datos Abiertos PBA: 0 resources processed, 0 errors
+  [ckan] Querying Datos Argentina for: Tigre, tigre
+  [ckan] Found 0 datasets on Datos Argentina
+  [ckan] Datos Argentina: 0 resources processed, 0 errors
+
+  --- Tigre: SIBOM ---
+  [sibom] Attempting to access SIBOM for Tigre...
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/municipio/tigre (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/buscar?municipio=Tigre (112 chars)
+  [sibom] Found content at https://www.gob.gba.gob.ar/dijl/SIBOM/?municipio=Tigre (112 chars)
+  [sibom] Tigre: 3 boletines processed, 0 skipped (PDF), 0 errors
+
+  --- Tigre: BA Abierta ---
+  [ba-abierta] Attempting to access BA Abierta for Tigre...
+  [ba-abierta] Error fetching https://baabierta.htcpba.gob.ar: fetch failed
+  [ba-abierta] BA Abierta not accessible (HTTP 0). URL: https://baabierta.htcpba.gob.ar
+
+  --- Tigre: PBAC ---
+  [pbac] Attempting PBAC ingestion for Tigre...
+  [pbac] PBAC portal is accessible but requires dynamic rendering. Skipping extraction for Tigre (planned for Sprint 4+).
+
+  --- Tigre: INDEC ---
+  [indec] Fetching census data for Tigre...
+  [indec] Using Censo 2022 fallback for Tigre: 461.750 hab, 156.224 hogares
+
+  --- Tigre: Social Media ---
+  [social-media] Checking social media API credentials for Tigre...
+  [social-media] Social media ingestion requires API credentials. Missing: facebook, instagram, twitter. See connector source for setup instructions.
+  [social-media] No social media API credentials configured. Skipping social media ingestion for Tigre.
+
+  Summary for Tigre: 4 pages, 1 chunks, 1 errors, 7148ms
+
+============================================================
+Ingestion pipeline completed
+============================================================
+
+Per-municipality summary:
+  Vicente López: 204 pages, 1 chunks, 118 errors, 361423ms
+    - web: 200 pages, 0 chunks, 116 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 1 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  San Isidro: 4 pages, 1 chunks, 1 errors, 7089ms
+    - web: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  Morón: 197 pages, 1 chunks, 41 errors, 693429ms
+    - web: 193 pages, 0 chunks, 40 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  La Plata: 67 pages, 62 chunks, 3 errors, 45487ms
+    - web: 2 pages, 0 chunks, 1 errors
+    - ckan_datos_abiertos_pba: 3 pages, 3 chunks, 0 errors
+    - ckan_datos_argentina: 58 pages, 58 chunks, 1 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  Lanús: 204 pages, 45 chunks, 55 errors, 63860182ms
+    - web: 200 pages, 44 chunks, 54 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  General Rodríguez: 103 pages, 1 chunks, 30 errors, 157734ms
+    - web: 99 pages, 0 chunks, 29 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  Florentino Ameghino: 6 pages, 1 chunks, 2 errors, 12107ms
+    - web: 2 pages, 0 chunks, 1 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors
+  Tigre: 4 pages, 1 chunks, 1 errors, 7148ms
+    - web: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_abiertos_pba: 0 pages, 0 chunks, 0 errors
+    - ckan_datos_argentina: 0 pages, 0 chunks, 0 errors
+    - sibom: 3 pages, 0 chunks, 0 errors
+    - ba_abierta: 0 pages, 0 chunks, 1 errors
+    - pbac: 0 pages, 0 chunks, 0 errors
+    - indec: 1 pages, 1 chunks, 0 errors
+    - social_media: 0 pages, 0 chunks, 0 errors

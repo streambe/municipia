@@ -86,4 +86,21 @@ describe('buildSystemPrompt', () => {
     const prompt = buildSystemPrompt(baseMunicipality, '')
     expect(prompt).toContain('NO cites fuentes automáticamente')
   })
+
+  it('should include obsidian memory when provided', () => {
+    const memory = 'El municipio tiene 84 documentos y atiende consultas sobre catastro.'
+    const prompt = buildSystemPrompt(baseMunicipality, 'context', memory)
+    expect(prompt).toContain('Memoria de Largo Plazo')
+    expect(prompt).toContain(memory)
+  })
+
+  it('should show fallback when obsidian memory is empty', () => {
+    const prompt = buildSystemPrompt(baseMunicipality, 'context')
+    expect(prompt).toContain('Sin memoria acumulada para este municipio')
+  })
+
+  it('should show fallback when obsidian memory is undefined', () => {
+    const prompt = buildSystemPrompt(baseMunicipality, 'context', undefined)
+    expect(prompt).toContain('Sin memoria acumulada para este municipio')
+  })
 })

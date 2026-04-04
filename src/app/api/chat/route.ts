@@ -7,9 +7,10 @@ import { addMessage } from '@/services/conversations'
 import { redactPII } from '@/lib/pii'
 import { rateLimit, getClientIP, rateLimitResponse } from '@/lib/rate-limit'
 import { checkPromptInjection } from '@/lib/guardrails'
+import { getObsidianMemory } from '@/services/obsidian-memory'
 import type { Municipality } from '@/types/municipality'
 
-export const runtime = 'edge'
+export const runtime = 'nodejs'
 
 export async function POST(req: Request) {
   // Rate limiting: 20 requests/minute per IP
@@ -85,10 +86,20 @@ export async function POST(req: Request) {
       0.7
     )
 
+    // Load Obsidian long-term memory (non-blocking, graceful degradation)
+    let obsidianMemory = ''
+    try {
+      const memory = getObsidianMemory(municipality.slug)
+      obsidianMemory = memory.combined
+    } catch (err) {
+      console.warn('Obsidian memory load failed (continuing without it):', err)
+    }
+
     // Build system prompt with full template from architecture doc
     const systemPrompt = buildSystemPrompt(
       municipality as Municipality,
-      context
+      context,
+      obsidianMemory
     )
 
     // Stream response using Vercel AI SDK
@@ -121,6 +132,20 @@ export async function POST(req: Request) {
             )
           } catch (err) {
             console.error('Failed to persist messages:', err)
+          }
+
+          // Save conversation summary to Obsidian (async, non-blocking)
+          if (messages.length >= 2) {
+            try {
+              const { saveConversation } = await import(
+                '../../../../scripts/obsidian/save-conversation'
+              )
+              saveConversation(conversationId).catch((e: unknown) =>
+                console.warn('Obsidian save-conversation failed:', e)
+              )
+            } catch (e) {
+              console.warn('Obsidian save-conversation import failed:', e)
+            }
           }
         }
       },
